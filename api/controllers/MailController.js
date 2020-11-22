@@ -9,8 +9,7 @@ module.exports = {
 send: () => {
 
 var nodemailer = require('nodemailer');
-
-// create reusable transporter object using SMTP transport
+var hbs = require('nodemailer-express-handlebars');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -18,27 +17,35 @@ var transporter = nodemailer.createTransport({
         pass: 'TheBells2001'
     }
 });
+transporter.use('compile', hbs({
+    viewEngine: {
+        extName: ".hbs",
+        partialsDir: "./views",
+        layoutsDir: "./views",
+        defaultLayout: "",
+    },
+    viewPath: "./views/",
+    extName: ".hbs",
+}));
+var mail = {
+    from: 'Bell Omuboye ✔ <bellomuboye@gmail.com>',
+    to: 'crystalbell.omuboye@gmail.com',
+    subject: 'Welcome to Bell Chat App 😎',
+    template: 'email',
+    context: {
+        name: 'Yo'
+    }
+ }
 
-// NB! No need to recreate the transporter object. You can use
-// the same transporter object for all e-mails
-
-// setup e-mail data with unicode symbols
-var mailOptions = {
-    from: 'Bell Omuboye ✔ <bellomuboye@gmail.com>', // sender address
-    to: 'crystalbell.omuboye@gmail.com, bellomuboye@gmail.com', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world ✔', // plaintext body
-    html: '<b>Hello world ✔</b>' // html body
-};
-
-// send mail with defined transport object
-transporter.sendMail(mailOptions, function(error, info){
+transporter.sendMail(mail, function(error, info){
     if(error){
         console.log(error);
     }else{
         console.log('Message sent: ' + info.response);
     }
 });
+
+
 
 }
 };
