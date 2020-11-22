@@ -20,6 +20,15 @@ module.exports = {
       unique: true
     },
 
+    username: {
+      type: 'string',
+      unique: true
+    },
+
+    password: {
+      type: 'string',
+    },
+
     avatar: {
       type: 'string',
       required: true,

@@ -6,7 +6,16 @@
     <div class="section">
       <img class="ui small centered circular image" src="<%= data.avatar %>">
       <div class="ui grid">
+
+      <% let evalDisable; %>
+      <% if (owner) { %>
+      <% evalDisable = ""; %>
+      <%} else { %>
+      <% evalDisable = "disabled='disabled'" %>
+      <% } %>
+      
         <form action="<%= '/user/update/'+  data.id %>" method="post" class="ui centered form">
+        <fieldset <%= evalDisable%>>
           <div class="field">
             <label>Name</label>
             <input type="text" name="name" value="<%= data.name %>">
@@ -25,6 +34,7 @@
           </div>
           <input type="hidden" name="avatar" value=<%=data.avatar %>>
           <button class="ui right floated  orange button" type="submit">Update</button>
+          </fieldset>
         </form>
       </div>
     </div>

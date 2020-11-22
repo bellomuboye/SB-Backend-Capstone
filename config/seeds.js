@@ -12,6 +12,8 @@ module.exports.seeds = {
     {
       name: 'John Wayne',
       email: 'johnnie86@gmail.com',
+      username: 'johnnie',
+      password: 'johnnie',
       avatar: 'https://randomuser.me/api/portraits/men/83.jpg',
       location: 'Mombasa',
       bio: 'Spends most of my time at the beach'
@@ -19,6 +21,8 @@ module.exports.seeds = {
     {
       name: 'Peter Quinn',
       email: 'peter.quinn@live.com',
+      username: 'peter',
+      password: 'peter',
       avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
       location: 'Langley',
       bio: 'Rather not say'
@@ -26,6 +30,8 @@ module.exports.seeds = {
     {
       name: 'Jane Eyre',
       email: 'jane@hotmail.com',
+      username: 'jane',
+      password: 'jane',
       avatar: 'https://randomuser.me/api/portraits/women/94.jpg',
       location: 'London',
       bio: 'Loves reading motivation books'

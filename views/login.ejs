@@ -1,0 +1,47 @@
+<div class="banner">
+  <div class="ui segment teal inverted">
+    <h1 class="ui center aligned icon header">
+      <i class="chat icon"></i>
+      <div class="content">
+        <a href="/">Sails Chat</a>
+        <div class="sub header">Welcome back Esteemed. Login</div>
+      </div>
+    </h1>
+  </div>
+</div>
+<div class="section">
+  <div class="ui three column grid">
+    <div class="column"></div>
+    <div class="column">
+      <div class="ui centered padded compact raised segment">
+        <h3>Log in</h3>
+        <div class="ui divider"></div>
+        <form method="post" action="/logins/authenticate" class="ui form">
+  <div class="field">
+    <label>Full Names</label>
+    <input type="text" name="name" placeholder="Full Names" value="<%= typeof name != 'undefined' ? name : '' %>">
+  </div>
+  <div class="required field">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="Email" value="<%= typeof email != 'undefined' ? email : '' %>">
+  </div>
+<div class="required field">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Password here" value="<%= typeof password != 'undefined' ? password : '' %>">
+  </div>  
+
+  <button class="ui blue button" type="submit" name="action" value="login">Login</button>
+
+</form>
+<% if(typeof error != 'undefined') { %>
+<div class="ui error message">
+  <div class="header"><%= error.title %></div>
+  <p><%= error.message %></p>
+</div>
+<% } %>
+
+      </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ const gravatar = require('gravatar')
 // Where to display auth errors
 const view = 'homepage';
 
-module.exports = {
+module.exports = { 
 
   sendAuthError: (response, title, message, options) => {
     options = options || {};

@@ -5,6 +5,7 @@
   "description": "a Sails chat application",
   "keywords": [],
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "ejs": "2.5.5",
     "gravatar": "^1.6.0",
     "grunt": "1.0.1",
@@ -20,10 +21,12 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
+    "nodemailer": "^6.4.16",
     "rc": "1.0.1",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
     "sails-hook-autoreload": "^0.14.3",
+    "sails-mongo": "^1.2.0",
     "sails-seed": "^0.5.0"
   },
   "scripts": {

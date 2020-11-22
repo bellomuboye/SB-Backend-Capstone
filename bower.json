@@ -17,7 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "semantic": "semantic-ui#^2.2.13",
-    "jsrender": "^0.9.90"
+    "semantic": "semantic-ui#^2.4.1",
+    "jsrender": "^1.0.8"
   }
 }

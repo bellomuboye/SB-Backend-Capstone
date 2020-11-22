@@ -35,10 +35,10 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/profile': {
-    controller: 'UserController',
-    action: 'render'
-  },
+  //'/profile': {
+//    //controller: 'UserController',
+    //action: 'render'
+  //},
   '/chat': {
       controller: 'ChatMessageController',
       action: 'render'
@@ -46,7 +46,27 @@ module.exports.routes = {
   '/postMessage': {
     controller: 'ChatMessageController',
     action: 'postMessage'
+  },
+
+  '/signup': {
+    view: 'signup'
+  },
+
+  '/login': {
+    view: 'login'
+  },
+
+  '/profiles/:username': {
+    controller: 'ProfileController',
+    action: 'render'
+  },
+
+  '/mail': {
+    controller: 'MailController',
+    action: 'send'
   }
+
+  
 
   /***************************************************************************
   *                                                                          *

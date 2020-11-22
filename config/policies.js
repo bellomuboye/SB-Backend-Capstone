@@ -56,4 +56,8 @@ module.exports.policies = {
   UserController: {
     '*': 'sessionAuth'
   },
+
+  ProfileController: {
+    '*': 'sessionAuth'
+  }
 };
