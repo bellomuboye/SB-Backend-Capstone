@@ -27,7 +27,14 @@ module.exports = {
     }
   },
   update: async(request, response) => {
-    console.log(request.file(avatarupload));
+
+    request.file('imageavatar').upload({ dirname: "../../assets/images"}, function onUploadComplete(err, files) {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(files)
+      }
+    });
     try {
       await User.update({ username: request.session.username })
       .set({

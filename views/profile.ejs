@@ -16,7 +16,7 @@
       
         <form action="<%= '/profile/update'%>" method="post" class="ui centered form" enctype="multipart/form-data">
         <fieldset <%= evalDisable%>>
-
+<input type="file" name="imageavatar" id="imageavatar">
           <div class="field">
             <label>Name</label>
             <input type="text" name="name" value="<%= data.name %>">
