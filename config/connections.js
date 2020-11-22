@@ -32,6 +32,11 @@ module.exports.connections = {
     adapter: 'sails-disk'
   },
 
+  localMongoDb: {
+    adapter: 'sails-mongo',
+    url: 'mongodb://localhost:27017/bellChatApp'
+  }
+
   /***************************************************************************
   *                                                                          *
   * MySQL is the world's most popular relational database.                   *
