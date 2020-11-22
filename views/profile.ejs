@@ -1,4 +1,4 @@
-<% include /partials/menu %>
+<% include /partials/menu%>
 
   <div class="ui container">
     <h1 class="ui centered header">Account Profile</h1>
@@ -14,7 +14,7 @@
       <% evalDisable = "disabled='disabled'" %>
       <% } %>
       
-        <form action="<%= '/user/update/'+  data.id %>" method="post" class="ui centered form">
+        <form action="<%= '/profile/update'%>" method="post" class="ui centered form">
         <fieldset <%= evalDisable%>>
           <div class="field">
             <label>Name</label>

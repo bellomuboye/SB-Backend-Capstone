@@ -8,7 +8,7 @@
 module.exports = {
 
 	render: (request, response) => {
-		return response.view('chatroom');
+		return response.view('chatroom', {username: request.session.username});
 	},
 
 	postMessage: async (request, response) => {
