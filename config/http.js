@@ -30,23 +30,24 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
-    //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+    order: [
+      'startRequestTimer',
+      'cookieParser',
+      'session',
+      'myRequestLogger',
+      'fileMiddleware',
+      'bodyParser',
+      'handleBodyParserError',
+      'compress',
+      'methodOverride',
+      'poweredBy',
+      '$custom',
+      'router',
+      'www',
+      'favicon',
+      '404',
+      '500'
+    ],
 
   /****************************************************************************
   *                                                                           *
@@ -74,7 +75,17 @@ module.exports.http = {
   ***************************************************************************/
 
 
-    // bodyParser: require('skipper')({strict: true})
+    bodyParser: (function () {
+      const bodyParser = require('body-parser');
+      bodyParser.json();
+      bodyParser.urlencoded({ extended: true });
+      return bodyParser();
+    })(),
+    fileMiddleware: (function () {
+      const multer = require('multer');
+      const upload = multer();
+      return upload.single('imageavatar');
+    })(),
 
   },
 

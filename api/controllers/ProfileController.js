@@ -27,19 +27,24 @@ module.exports = {
     }
   },
   update: async(request, response) => {
+    const fs = require('fs');
+    var imageTypeRegularExpression = /\/(.*?)$/;
+    var imageType = request.file.mimetype.match(imageTypeRegularExpression);
+    var fileType = imageType[1];
+    let avatarLocation = 'images/uploads/' + 'avatar' + request.session.username + '.' + fileType;
 
-    request.file('imageavatar').upload({ dirname: "../../assets/images"}, function onUploadComplete(err, files) {
+    fs.writeFile('assets/'+avatarLocation, request.file.buffer, (err) => {
       if (err) {
         console.log(err)
-      } else {
-        console.log(files)
       }
     });
+
     try {
       await User.update({ username: request.session.username })
       .set({
         name: request.body.name,
         email: request.body.email,
+        avatar: avatarLocation,
         username: request.body.username,
         location: request.body.location,
         bio: request.body.bio
