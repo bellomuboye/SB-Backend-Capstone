@@ -20,6 +20,10 @@ module.exports = {
 		try {
 			let user = await User.findOne({id:request.session.userId});
 			let msg = await ChatMessage.create({message:request.body.message, createdBy:user });
+			let parsedDate = Date.parse(msg.createdAt);
+			let dateObject = new Date(parsedDate);
+			msg.createdAtText = dateObject.toDateString() + ", " + dateObject.toLocaleTimeString();
+
 			if(!msg.id) {
 				throw new Error('Message processing failed!');
 			}
@@ -33,3 +37,4 @@ module.exports = {
 		return response.ok();
 	}
 };
+ 

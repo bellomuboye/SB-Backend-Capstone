@@ -32,6 +32,7 @@ module.exports = {
       .set({
         name: request.body.name,
         email: request.body.email,
+        username: request.body.username,
         location: request.body.location,
         bio: request.body.bio
       });

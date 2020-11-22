@@ -11,7 +11,7 @@
       <% if (owner) { %>
       <% evalDisable = ""; %>
       <%} else { %>
-      <% evalDisable = "disabled='disabled'" %>
+      <% evalDisable = "disabled='disabled'" ;%>
       <% } %>
       
         <form action="<%= '/profile/update'%>" method="post" class="ui centered form">
@@ -19,6 +19,10 @@
           <div class="field">
             <label>Name</label>
             <input type="text" name="name" value="<%= data.name %>">
+          </div>
+          <div class="field">
+            <label>Username</label>
+            <input type="text" name="username" value="<%= data.username %>">
           </div>
           <div class="field">
             <label>Email</label>
