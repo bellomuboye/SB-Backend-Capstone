@@ -5,7 +5,7 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-module.exports = {
+module.exports = { 
 
   render: async (request, response) => {
     try { 
@@ -27,6 +27,7 @@ module.exports = {
     }
   },
   update: async(request, response) => {
+    console.log(request.file(avatarupload));
     try {
       await User.update({ username: request.session.username })
       .set({

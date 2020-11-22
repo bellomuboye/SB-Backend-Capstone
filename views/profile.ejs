@@ -14,8 +14,9 @@
       <% evalDisable = "disabled='disabled'" ;%>
       <% } %>
       
-        <form action="<%= '/profile/update'%>" method="post" class="ui centered form">
+        <form action="<%= '/profile/update'%>" method="post" class="ui centered form" enctype="multipart/form-data">
         <fieldset <%= evalDisable%>>
+
           <div class="field">
             <label>Name</label>
             <input type="text" name="name" value="<%= data.name %>">
