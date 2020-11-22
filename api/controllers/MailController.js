@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-send: () => {
+send: (mailDetails) => {
 
 var nodemailer = require('nodemailer');
 var hbs = require('nodemailer-express-handlebars');
@@ -27,17 +27,13 @@ transporter.use('compile', hbs({
     viewPath: "./views/",
     extName: ".hbs",
 }));
-var mail = {
+
+ var mailOptions = {
     from: 'Bell Omuboye ✔ <bellomuboye@gmail.com>',
-    to: 'crystalbell.omuboye@gmail.com',
-    subject: 'Welcome to Bell Chat App 😎',
-    template: 'email',
-    context: {
-        name: 'Yo'
-    }
+    ...mailDetails
  }
 
-transporter.sendMail(mail, function(error, info){
+transporter.sendMail(mailOptions, function(error, info){
     if(error){
         console.log(error);
     }else{

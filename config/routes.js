@@ -61,10 +61,7 @@ module.exports.routes = {
     action: 'render'
   },
 
-  '/mail': {
-    controller: 'MailController',
-    action: 'send'
-  }
+
 
   
 

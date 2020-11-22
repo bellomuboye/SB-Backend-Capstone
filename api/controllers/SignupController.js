@@ -5,6 +5,8 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+const MailController = require("./MailController");
+
  module.exports = {
 
  	authenticate: async (request, response) => {
@@ -32,8 +34,18 @@
  			const newUser = await SignupService.registerUser({name,email, username, password}, response);
  			if(!newUser) {
  				return;
- 			}
- 		
+			 }
+
+			 var mailDetails = {
+				to: newUser.email,
+				subject: 'Welcome to Bell Chat App 😎',
+				template: 'email',
+				context: {
+					name: newUser.name
+				}
+			 }
+			 
+			 MailController.send(mailDetails)
 
  		// Attempt to log in
  		const success = await LoginsService.login(request, response);
